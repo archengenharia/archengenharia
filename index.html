@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solicite seu Orçamento | Arch Engenharia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      color: #003366;
+    }
+    header {
+      background: linear-gradient(90deg, #b3e5fc, #81d4fa);
+      color: #003366;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      transition: background 0.5s ease;
+    }
+    .logo {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      width: 50px;
+      height: auto;
+    }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #003366;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background: #003366;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #005599;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+    @media screen and (max-width: 640px) {
+      header {
+        padding: 40px 20px 20px 20px;
+      }
+      .logo {
+        top: 10px;
+        width: 40px;
+      }
+      .container {
+        margin: 20px 10px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header id="mainHeader">
+  <img src="logo.png" alt="Logo da Arch Engenharia" class="logo">
+  <h1>Orçamento de Projetos</h1>
+  <p>Solicite um orçamento personalizado com a Arch Engenharia</p>
+</header>
+
+<div class="container">
+  <h2>Formulário de Orçamento</h2>
+
+  <form id="orcamentoForm">
+    <label for="nome">Nome completo*</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="email">E-mail*</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="telefone">Telefone/WhatsApp*</label>
+    <input type="tel" id="telefone" name="telefone" required>
+
+    <label for="tipo">Tipo de Projeto*</label>
+    <select id="tipo" name="tipo" required>
+      <option value="">Selecione</option>
+      <option value="Residencial">Residencial</option>
+      <option value="Comercial">Comercial</option>
+      <option value="Outro">Outro</option>
+    </select>
+
+    <label for="mensagem">Descreva o que você precisa*</label>
+    <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+    <button type="submit">Enviar pelo WhatsApp</button>
+  </form>
+</div>
+
+<footer>
+  © 2025 Arch Engenharia — Todos os direitos reservados.
+</footer>
+
+<script>
+  document.getElementById("orcamentoForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const telefone = document.getElementById("telefone").value;
+    const tipo = document.getElementById("tipo").value;
+    const mensagem = document.getElementById("mensagem").value;
+
+    const texto = `*Solicitação de Orçamento*%0A%0A*Nome:* ${nome}%0A*E-mail:* ${email}%0A*Telefone:* ${telefone}%0A*Tipo de Projeto:* ${tipo}%0A*Mensagem:* ${mensagem}`;
+
+    const numero = "5531996665955";
+    const link = `https://wa.me/${numero}?text=${texto}`;
+
+    window.open(link, '_blank');
+  });
+
+  const header = document.getElementById("mainHeader");
+  header.addEventListener("mouseenter", () => {
+    header.style.background = "linear-gradient(90deg, #e1f5fe, #b3e5fc)";
+  });
+  header.addEventListener("mouseleave", () => {
+    header.style.background = "linear-gradient(90deg, #b3e5fc, #81d4fa)";
+  });
+</script>
+
+</body>
+</html>
